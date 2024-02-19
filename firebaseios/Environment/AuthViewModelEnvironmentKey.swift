@@ -1,0 +1,19 @@
+//
+//  AuthViewModelEnvironmentKey.swift
+//  firebaseios
+//
+//  Created by Pedro on 12/2/24.
+//
+
+import SwiftUI
+
+struct AuthViewModelEnvironmentKey: EnvironmentKey {
+    static let defaultValue: AuthViewModelProtocol = FirebaseAuthViewModel()
+}
+
+extension EnvironmentValues {
+    var authViewModel: AuthViewModelProtocol {
+        get { self[AuthViewModelEnvironmentKey.self] }
+        set { self[AuthViewModelEnvironmentKey.self] = newValue }
+    }
+}

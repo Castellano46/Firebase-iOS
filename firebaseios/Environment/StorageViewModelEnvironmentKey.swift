@@ -1,0 +1,19 @@
+//
+//  StorageViewModelEnvironmentKey.swift
+//  firebaseios
+//
+//  Created by Pedro on 13/2/24.
+//
+
+import SwiftUI
+
+struct StorageViewModelEnvironmentKey: EnvironmentKey {
+    static let defaultValue: StorageViewModelProtocol = FirebaseStorageViewModel()
+}
+
+extension EnvironmentValues {
+    var storageViewModel: StorageViewModelProtocol {
+        get { self[StorageViewModelEnvironmentKey.self] }
+        set { self[StorageViewModelEnvironmentKey.self] = newValue }
+    }
+}
